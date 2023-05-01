@@ -79,7 +79,10 @@ export const signin = async (req, res, next) => {
 
     res
       .cookie("access_token", token, {
-        httpOnly: false,
+        sameSite: "none",
+        secure: true,
+        domain: "https://eblunt-8673d.web.app/",
+        httpOnly: true,
       })
       .status(200)
       .json({
@@ -96,20 +99,19 @@ export const signin = async (req, res, next) => {
 export const verifyToken = async (req, res, next) => {
   try {
     const token = verify(req, res, next);
-   if(token){
-    console.log(token)
-    res.status(200).json({
-      success: true,
-      message: "Token verified!",
-      data: req.user
-    })
-   }
-   else{
-    res.status(401).json({
-      success: false,
-      message: "Token expired!",
-      data: req.user
-    })
-   }
+    if (token) {
+      console.log(token);
+      res.status(200).json({
+        success: true,
+        message: "Token verified!",
+        data: req.user,
+      });
+    } else {
+      res.status(401).json({
+        success: false,
+        message: "Token expired!",
+        data: req.user,
+      });
+    }
   } catch (error) {}
 };
