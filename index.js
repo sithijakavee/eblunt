@@ -27,6 +27,10 @@ app.use(express.json({
         }
     }
 }))
+
+app.get("/", (req, res, next) => {
+    res.status(200).send("Api")
+})
 app.use(express.static("./uploads"))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
