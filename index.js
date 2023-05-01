@@ -16,7 +16,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://eblunt-8673d.web.app",
     credentials: true,
 }))
 app.use(express.json({
@@ -38,7 +38,7 @@ app.use("/api/v1/checkout/", checkoutRoutes)
 app.use("/api/v1/orders/", orderRoutes)
 app.use("/api/v1/ui/", uiRoutes)
 
-app.listen(8800, () => {
+app.listen(process.env.PORT || 5000, () => {
     connect()
     console.log("Server is listening")
 })
