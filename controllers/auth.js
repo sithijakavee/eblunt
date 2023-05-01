@@ -81,7 +81,7 @@ export const signin = async (req, res, next) => {
       .cookie("access_token", token, {
         sameSite: "none",
         secure: true,
-        domain: "https://eblunt-8673d.web.app/",
+        domain: "eblunt-8673d.web.app",
         httpOnly: true,
       })
       .status(200)
