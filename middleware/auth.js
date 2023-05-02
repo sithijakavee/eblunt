@@ -3,9 +3,9 @@ import User from "../models/user.js";
 
 export const isAuthenticated = async (req, res, next) => {
   try {
-    const { access_token } = req.cookies;
+    const { access_token } = req.body;
 
-    // console.log(access_token);
+    console.log(req.body);
 
     if (!access_token) {
       res.status(401).json({

@@ -16,7 +16,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://eblunt-8673d.web.app",
+    origin: ["https://eblunt-8673d.web.app", ["http://localhost:3000"]],
     credentials: true,
 }))
 app.use(express.json({

@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get("/getproduct/:id", getSingleProduct)
 router.get("/getallproducts", getAllProducts)
-router.post("/addproduct", isAuthenticated, upload.single("file"), addProduct)
+router.post("/addproduct", upload.single("file"), addProduct)
 router.put("/editproduct/:id", isAuthenticated, editProduct)
 router.delete("/deleteproduct/:id", isAuthenticated, deleteProduct)
 

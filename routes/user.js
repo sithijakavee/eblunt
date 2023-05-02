@@ -6,7 +6,7 @@ import { addtocart, deletecart, getUser } from '../controllers/user.js';
 const router = express.Router()
 
 router.get("/", (req, res) => {res.send("API") })
-router.get("/getuser", isAuthenticated, getUser);
+router.post("/getuser", isAuthenticated, getUser);
 router.put("/addtocart", isAuthenticated, addtocart);
 router.post("/deletecart", isAuthenticated, deletecart);
 

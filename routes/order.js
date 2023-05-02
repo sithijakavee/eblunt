@@ -6,6 +6,6 @@ import { getAllOrders } from '../controllers/order.js';
 const router = express.Router()
 
 
-router.get("/getallorders", isAuthenticated, getAllOrders);
+router.post("/getallorders", isAuthenticated, getAllOrders);
 
 export default router

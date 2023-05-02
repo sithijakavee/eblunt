@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.post("/video", isAuthenticated, uploadVideo);
 router.get("/video", getVideo);
-router.post("/slides/add", isAuthenticated, upload.single("file"), addSlide);
+router.post("/slides/add", upload.single("file"), addSlide);
 router.get("/slides", getSlides);
 router.post("/slides/delete", isAuthenticated, deleteSlide);
 
