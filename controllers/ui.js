@@ -1,3 +1,4 @@
+import About from "../models/about.js"
 import Slide from "../models/slide.js"
 import Video from "../models/video.js"
 
@@ -72,6 +73,37 @@ export const deleteSlide = async (req, res, next) => {
         res.status(201).json({
             success: true,
             message: "Slide deleted successfully!"
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export const addAbout = async (req, res, next) => {
+    try {
+        await About.deleteMany({})
+
+        const about = await About.create({about: req.body.about})
+
+        res.status(201).json({
+            success: true,
+            message: "About uploaded sucessfully",
+            data: about
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getAbout = async (req, res, next) => {
+    try {
+
+        const about = await About.find({})
+        console.log(about)
+        res.status(201).json({
+            success: true,
+            data: about
         })
     } catch (error) {
         console.log(error)

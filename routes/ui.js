@@ -1,6 +1,6 @@
 import express from 'express'
 import {isAuthenticated} from '../middleware/auth.js';
-import { addSlide, deleteSlide, getSlides, getVideo, uploadVideo } from '../controllers/ui.js';
+import { addAbout, addSlide, deleteSlide, getAbout, getSlides, getVideo, uploadVideo } from '../controllers/ui.js';
 import { upload } from '../multer.js';
 
 
@@ -12,5 +12,7 @@ router.get("/video", getVideo);
 router.post("/slides/add", upload.single("file"), addSlide);
 router.get("/slides", getSlides);
 router.post("/slides/delete", isAuthenticated, deleteSlide);
+router.post("/about", isAuthenticated, addAbout);
+router.get("/about/get", getAbout);
 
 export default router
